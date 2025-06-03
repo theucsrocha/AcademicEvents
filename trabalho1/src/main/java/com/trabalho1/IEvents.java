@@ -2,7 +2,7 @@ package com.trabalho1;
 
 public interface IEvents {
 
-    public boolean RegisterPeople();
+    public int registerPeople(People p);
     public boolean isEmpty();
     public boolean isFull();
     public void report();
