@@ -8,8 +8,8 @@ public class Lecture extends Event {
     private String themeOfLecture;
     private ArrayList<String> speakersArrayList;
 
-    public Lecture(String name, int capacity, LocalDate date,String local, String themeOfLecture){
-        super(name, capacity, date, local);
+    public Lecture(String name, int capacity, LocalDate date,String local, String themeOfLecture,boolean isOnline){
+        super(name, capacity, date, local,isOnline);
         this.themeOfLecture = themeOfLecture;
         this.speakersArrayList = new ArrayList<String>();
     }
@@ -30,6 +30,8 @@ public class Lecture extends Event {
 
         }   
     }
+
+    
 
     
 }

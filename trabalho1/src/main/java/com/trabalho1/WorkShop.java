@@ -6,8 +6,8 @@ public class WorkShop extends Event {
     
     private String apprenticeship;
 
-    public WorkShop(String name, int capacity, LocalDate date,String local,String apprenticeship) {
-        super(name, capacity, date, local);
+    public WorkShop(String name, int capacity, LocalDate date,String local,String apprenticeship,boolean isOnline) {
+        super(name, capacity, date, local,isOnline);
         this.apprenticeship = apprenticeship;
     }
 

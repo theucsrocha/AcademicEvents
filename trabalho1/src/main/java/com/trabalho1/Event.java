@@ -3,6 +3,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Vector;
 import java.time.LocalDate;
 
 public class Event implements IEvents {
@@ -11,16 +12,21 @@ public class Event implements IEvents {
     private LocalDate date;
     private String local;
     private Map <Integer, People> registeredPeople;
+    private boolean isOnline = false;
+    protected Vector<Event> allEventsRegistred;
 
-    public Event(String name, int capacity, LocalDate date,String local){
+
+     public Event(String name, int capacity, LocalDate date,String local,boolean isOnline){
         
         this.name = name;
         this.capacity = capacity;
         this.date = date;
         this.local = local;
         this.registeredPeople = new HashMap<Integer, People>();
+        this.isOnline = isOnline;
+        allEventsRegistred.add(this);
     }
-     
+
     public boolean isEmpty(){
         if (registeredPeople.size() == 0) {
             return true;
@@ -36,6 +42,13 @@ public class Event implements IEvents {
     }
 
     public int registerPeople(People people){
+       
+        if(this.isOnline){
+            registeredPeople.put(people.getId(), people);
+            System.out.println("Student registred in the event " + this.name);
+            return 1;
+        }
+        else{
         
         if (isFull()) {
             System.out.println("Event is full, cannot register " + people.getName());
@@ -50,6 +63,7 @@ public class Event implements IEvents {
         registeredPeople.put(people.getId(), people);
         System.out.println("Student registred in the event " + this.name);
         return 1;
+    }
     }
 
     public void report(){

@@ -6,8 +6,8 @@ public class Course extends Event {
     
     private int hoursCourse;
 
-    public Course(String name, int capacity, LocalDate date,String local, int hoursCourse){
-        super(name, capacity, date, local);
+    public Course(String name, int capacity, LocalDate date,String local, int hoursCourse,boolean isOnline){
+        super(name, capacity, date, local,isOnline);
         this.hoursCourse = hoursCourse;
     }
 

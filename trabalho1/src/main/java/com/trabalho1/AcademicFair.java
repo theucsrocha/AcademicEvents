@@ -7,8 +7,8 @@ public class AcademicFair extends Event {
     
     private ArrayList<String> exhibitions;
 
-    public AcademicFair(String name, int capacity, LocalDate date,String local){
-        super(name, capacity, date, local);
+    public AcademicFair(String name, int capacity, LocalDate date,String local,boolean isOnline){
+        super(name, capacity, date, local,isOnline);
         this.exhibitions = new ArrayList<String>();
 
     }
