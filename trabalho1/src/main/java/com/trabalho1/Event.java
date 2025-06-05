@@ -3,7 +3,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Vector;
+import java.net.Socket;
 import java.time.LocalDate;
 
 public class Event implements IEvents {
@@ -13,7 +15,7 @@ public class Event implements IEvents {
     private String local;
     private Map <Integer, People> registeredPeople;
     private boolean isOnline = false;
-    protected Vector<Event> allEventsRegistred;
+    protected  static Vector<Event> allEventsRegistred;
 
 
      public Event(String name, int capacity, LocalDate date,String local,boolean isOnline){
@@ -82,9 +84,68 @@ public class Event implements IEvents {
             }
         }
         
+    }
 
-        
+    public void reportByEvent(Scanner scanner, Vector<Event> allEventsRegistred){
+    int choice;
+    do{
+        System.out.println("Choose the type of event:");
+        System.out.println("1 - Lecture");
+        System.out.println("2 - WorkShop");
+        System.out.println("3 - Academic Fair");
+        System.out.println("4 - Course");
+        System.out.println("5 - Exit");
 
+        choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1: {
+                for (Event e : allEventsRegistred) {
+                    if (e instanceof Lecture) {
+                        System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                    }
+                }
+                break;
+            }
+            case 2: {
+                for (Event e : allEventsRegistred) {
+                    if (e instanceof WorkShop) {
+                        System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                    }
+                }
+                break;
+            }
+            case 3: {
+                for (Event e : allEventsRegistred) {
+                    if (e instanceof AcademicFair) {
+                        System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                    }
+                }
+                break;
+            }
+            case 4: {
+                for (Event e : allEventsRegistred) {
+                    if (e instanceof Course) {
+                        System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                    }
+                }
+                break;
+            }
+            case 5:
+                System.out.println("Exiting report menu...");
+                break;
+            default:
+                System.out.println("Option not found, try please!\n");
+                break;
+        }
+    } while(choice != 5);
+    }
+
+    
+
+    public int getFreeSlots(){
+        return capacity - registeredPeople.size();
     }
 
     public String getName() {
