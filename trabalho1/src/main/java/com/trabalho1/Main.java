@@ -117,7 +117,8 @@ public class Main {
                         System.out.println("2 - Create new teacher");
                         System.out.println("3 - List all people");
                         System.out.println("4 - Register people in event");
-                        System.out.println("5 - Exit");
+                        System.out.println("5 - Create new external people");
+                        System.out.println("6 - Exit");
                         option = scanner.nextInt();
                         scanner.nextLine();
 
@@ -127,12 +128,12 @@ public class Main {
                                 String studentName = scanner.nextLine();
                                 System.out.print("University: ");
                                 String university = scanner.nextLine();
-                                meneger.addStudent(new Student(studentName, university));
+                                meneger.addPeople(new Student(studentName, university));
                                 break;
                             case 2:
                                 System.out.print("Teacher name: ");
                                 String teacherName = scanner.nextLine();
-                                meneger.addTeacher(new Teacher(teacherName));
+                                meneger.addPeople(new Teacher(teacherName));
                                 break;
                             case 3:
                                 meneger.listAllPeople();
@@ -140,7 +141,15 @@ public class Main {
                             case 4:
                                 meneger.registerPeopleInEvent(scanner);
                                 break;
-                            case 5:
+
+                            case 5:  
+                                System.out.println("External name: ");
+                                String externalName = scanner.nextLine();  
+                                System.out.println("External ocupation: ");
+                                String externalOccupation = scanner.nextLine();
+                                meneger.addPeople(new External(externalName, externalOccupation));
+                                break;
+                            case 6:
                                 System.out.println("Exiting people management menu...");
                                 break;
                             default:
