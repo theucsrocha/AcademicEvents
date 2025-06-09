@@ -94,12 +94,63 @@ public class Main {
                             
                             case 3: 
                                 meneger.listByEvent(scanner);
+                                break;
+                            case 4:
+                                System.out.print("Enter the date (YYYY-MM-DD) to list events: ");
+                                String dateInput = scanner.nextLine();
+                                LocalDate eventDate = LocalDate.parse(dateInput);
+                                meneger.listByDate(eventDate);
+                                break;
+                            case 5:
+                                System.out.println("Exiting event management menu...");
+                                break;
                             
                             default:
                                 break;
                         }
                     } while (option != 5);
                     break;
+                case 2:
+                    do {
+                        System.out.println("People Manager Menu! Choose your option:");
+                        System.out.println("1 - Create new student");
+                        System.out.println("2 - Create new teacher");
+                        System.out.println("3 - List all people");
+                        System.out.println("4 - Register people in event");
+                        System.out.println("5 - Exit");
+                        option = scanner.nextInt();
+                        scanner.nextLine();
+
+                        switch (option) {
+                            case 1:
+                                System.out.print("Student name: ");
+                                String studentName = scanner.nextLine();
+                                System.out.print("University: ");
+                                String university = scanner.nextLine();
+                                meneger.addStudent(new Student(studentName, university));
+                                break;
+                            case 2:
+                                System.out.print("Teacher name: ");
+                                String teacherName = scanner.nextLine();
+                                meneger.addTeacher(new Teacher(teacherName));
+                                break;
+                            case 3:
+                                meneger.listAllPeople();
+                                break;
+                            case 4:
+                                meneger.registerPeopleInEvent(scanner);
+                                break;
+                            case 5:
+                                System.out.println("Exiting people management menu...");
+                                break;
+                            default:
+                                break;
+                        }
+                    } while (option != 5);
+                    break;
+                case 3:
+                    
+
                 default:
                     break;
             }
