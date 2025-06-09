@@ -93,7 +93,7 @@ public class Main {
                                 break;
                             
                             case 3: 
-                                
+                                meneger.listByEvent(scanner);
                             
                             default:
                                 break;
