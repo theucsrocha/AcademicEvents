@@ -89,6 +89,13 @@ public class Event implements IEvents {
             while (i.hasNext()) {
                 People p = i.next();
                 System.out.println(p.getClass().getSimpleName() + " / " + p.getName() + " | ID: " + p.getId());
+
+                if(p instanceof Teacher){
+                    System.out.println("Specionalization:" + (Teacher)p.getSpecionalization);
+                }
+                else if(p instanceof External){
+                    System.out.println("Occupation: " + (External)p.getOccupation);
+                }
             }
             System.out.println("========================================");
         }
