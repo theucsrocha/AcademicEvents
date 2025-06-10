@@ -12,13 +12,15 @@ public class Course extends Event {
     }
 
     @Override
-public int registerPeople(People people){
-    if(people instanceof Teacher ){
-        System.out.println("Only Students can be register in a course.");
+    public int registerPeople(People people){
+        if(people instanceof Teacher ){
+        System.out.println("----------------------------------------");
+        System.out.println("Only students can be registered in a course.");
+        System.out.println("----------------------------------------");
         return 0;
     }
-    else{
-        return super.registerPeople(people);
+        else{
+            return super.registerPeople(people);
     }
 }
 

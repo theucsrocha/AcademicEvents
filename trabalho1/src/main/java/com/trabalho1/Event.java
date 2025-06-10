@@ -46,46 +46,52 @@ public class Event implements IEvents {
     }
 
     public int registerPeople(People people){
-       
         if(this.isOnline){
             registeredPeople.put(people.getId(), people);
-            System.out.println("Student registred in the event " + this.name);
+            System.out.println("----------------------------------------");
+            System.out.println("Student registered in the event: " + this.name);
+            System.out.println("----------------------------------------");
+            return 1;
+        } else {
+            if (isFull()) {
+                System.out.println("----------------------------------------");
+                System.out.println("Event is full, cannot register " + people.getName());
+                System.out.println("----------------------------------------");
+                return 0;
+            }
+
+            if (registeredPeople.containsKey(people.getId())) {
+                System.out.println("----------------------------------------");
+                System.out.println(people.getName() + " is already registered.");
+                System.out.println("----------------------------------------");
+                return 0;
+            }
+
+            registeredPeople.put(people.getId(), people);
+            System.out.println("----------------------------------------");
+            System.out.println("Student registered in the event: " + this.name);
+            System.out.println("----------------------------------------");
             return 1;
         }
-        else{
-        
-        if (isFull()) {
-            System.out.println("Event is full, cannot register " + people.getName());
-            return 0;
-        }
-
-        if (registeredPeople.containsKey(people.getId())) {
-            System.out.println(people.getName() + "is already registered ");
-            return 0;
-        }
-
-        registeredPeople.put(people.getId(), people);
-        System.out.println("Student registred in the event " + this.name);
-        return 1;
-    }
-    }
+}
 
     public void report(){
-        
         if (isEmpty()) {
-            System.out.println("This event is empty");
-        }
-        else{
-            Collection <People> studentsCollection = registeredPeople.values();
+            System.out.println("----------------------------------------");
+            System.out.println("This event is empty.");
+            System.out.println("----------------------------------------");
+        } else {
+            Collection<People> studentsCollection = registeredPeople.values();
             Iterator<People> i = studentsCollection.iterator();
-            System.out.println("Report of event " + name);
+            System.out.println("========================================");
+            System.out.println("Report of event: " + name);
+            System.out.println("========================================");
             while (i.hasNext()) {
                 People p = i.next();
-                System.out.println(i.getClass().getSimpleName() + "/" + p.getName() + "ID: " + p.getId());
-                
+                System.out.println(p.getClass().getSimpleName() + " / " + p.getName() + " | ID: " + p.getId());
             }
+            System.out.println("========================================");
         }
-        
     }
 
     

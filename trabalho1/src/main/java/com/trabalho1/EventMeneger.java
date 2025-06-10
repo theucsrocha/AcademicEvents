@@ -108,23 +108,32 @@ public class EventMeneger {
 
     public void registerPeopleInEvent(Scanner scanner){
         listAllPeople();
-        System.out.println("Choose the ID of people for register:");
+        System.out.println("----------------------------------------");
+        System.out.println("Enter the ID of the person to register:");
+        System.out.println("----------------------------------------");
         int id = Integer.parseInt(scanner.nextLine());
 
         for(People p : allPeopleRegistred){
             if(p.getId() == id ){
-                System.out.println("Event list:");
+                System.out.println("----------------------------------------");
+                System.out.println("Event List:");
                 listAllEvents();
-                System.out.println("Choose the event for register:");
+                System.out.println("----------------------------------------");
+                System.out.println("Enter the number of the event to register:");
+                System.out.println("----------------------------------------");
                 int option = scanner.nextInt();
                 scanner.nextLine(); 
                 int situation = allEventsRegistred.get(option - 1).registerPeople(p);
-                
+
                 if (situation == 1) {
-                    System.out.println("People registred!");
+                    System.out.println("========================================");
+                    System.out.println("Person registered successfully!");
+                    System.out.println("========================================");
                 }
                 else{
-                    System.out.println("Erro!");
+                    System.out.println("----------------------------------------");
+                    System.out.println("Error registering person in event.");
+                    System.out.println("----------------------------------------");
                 }
                 break;
             }

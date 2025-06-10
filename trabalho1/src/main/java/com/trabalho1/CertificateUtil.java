@@ -13,7 +13,11 @@ public class CertificateUtil {
             String fileName = "certificate_" + p.getName().replaceAll("\\s+", "_") + "_" + e.getName().replaceAll("\\s+", "_") + ".pdf";
             PdfWriter.getInstance(document, new FileOutputStream(fileName));
             document.open();
-            document.add(new Paragraph("Certificate of Participation"));
+            document.add(new Paragraph("========================================"));
+            document.add(new Paragraph("         Certificate of Participation"));
+            document.add(new Paragraph("========================================"));
+            document.add(new Paragraph(" "));
+            document.add(new Paragraph("Event: " + e.getName())); 
             document.add(new Paragraph(" "));
 
             if (e instanceof Lecture) {
@@ -39,11 +43,15 @@ public class CertificateUtil {
                 document.add(new Paragraph("Type: Generic Event"));
             }
 
+            document.add(new Paragraph("----------------------------------------"));
             document.add(new Paragraph("Participant: " + p.getName()));
             document.add(new Paragraph("Date: " + e.getDate()));
             document.add(new Paragraph("Location: " + e.getLocal()));
+            document.add(new Paragraph("========================================"));
             document.close();
+            System.out.println("----------------------------------------");
             System.out.println("Certificate generated at: " + fileName);
+            System.out.println("----------------------------------------");
         } catch (FileNotFoundException | DocumentException ex) {
             ex.printStackTrace();
         }
