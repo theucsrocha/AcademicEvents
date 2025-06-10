@@ -11,9 +11,7 @@ public class Main {
         
 
         // Inicializa o vetor estático se necessário
-        if (Event.allEventsRegistred == null) {
-            Event.allEventsRegistred = new java.util.Vector<>();
-        }
+
 
         do {
             System.out.println("Welcome to Academic Events Manager, choose your option:");
@@ -133,7 +131,9 @@ public class Main {
                             case 2:
                                 System.out.print("Teacher name: ");
                                 String teacherName = scanner.nextLine();
-                                meneger.addPeople(new Teacher(teacherName));
+                                System.out.println("Specialization: ");
+                                String specialization = scanner.nextLine();
+                                meneger.addPeople(new Teacher(teacherName, specialization));
                                 break;
                             case 3:
                                 meneger.listAllPeople();
@@ -155,7 +155,7 @@ public class Main {
                             default:
                                 break;
                         }
-                    } while (option != 5);
+                    } while (option != 6);
                     break;
                 case 3:
                     

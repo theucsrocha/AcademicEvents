@@ -88,8 +88,48 @@ public class EventMeneger {
             }
         else{
             for(Event e : allEventsRegistred){
-                System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                System.out.println((allEventsRegistred.indexOf(e) + 1) + ": " +  e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
             }
         }
+    }
+
+    public void listAllPeople(){
+        if (allPeopleRegistred.size() == 0) {
+            System.out.println("Not Found");
+            }
+        else{
+            for(People p : allPeopleRegistred){
+                System.out.println(p.getName() + "\n  ID: " + p.getId());
+            }
+        }
+    }
+
+    public void registerPeopleInEvent(Scanner scanner){
+        listAllPeople();
+        System.out.println("Choose the ID of people for register:");
+        int id = Integer.parseInt(scanner.nextLine());
+
+        for(People p : allPeopleRegistred){
+            if(p.getId() == id ){
+                System.out.println("Event list:");
+                listAllEvents();
+                System.out.println("Choose the event for register:");
+                int option = scanner.nextInt();
+                scanner.nextLine(); 
+                int situation = allEventsRegistred.get(option - 1).registerPeople(p);
+                
+                if (situation == 1) {
+                    System.out.println("People registred!");
+                }
+                else{
+                    System.out.println("Erro!");
+                }
+                break;
+            }
+        }
+        
+
+
+
     }
 }
