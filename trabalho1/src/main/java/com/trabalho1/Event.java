@@ -14,7 +14,7 @@ public class Event implements IEvents {
     private String local;
     private Map <Integer, People> registeredPeople;
     private boolean isOnline = false;
-    
+    public static int totalEvents;
 
 
      public Event(String name, int capacity, LocalDate date,String local,boolean isOnline){
@@ -25,7 +25,7 @@ public class Event implements IEvents {
         this.local = local;
         this.registeredPeople = new HashMap<Integer, People>();
         this.isOnline = isOnline;
-       
+        totalEvents++;
     }
 
     public Event(){}
@@ -81,7 +81,7 @@ public class Event implements IEvents {
             System.out.println("Report of event " + name);
             while (i.hasNext()) {
                 People p = i.next();
-                System.out.println(i.getClass().getCanonicalName() + "/" + p.getName() );
+                System.out.println(i.getClass().getSimpleName() + "/" + p.getName() + "ID: " + p.getId());
                 
             }
         }
@@ -128,6 +128,20 @@ public class Event implements IEvents {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static int getTotalEvents() {
+        return totalEvents;
     }
+
+    public People getPeopleById(int id){
+        People person = registeredPeople.get(id);
+    if (person != null) {
+        return person;
+    } else {
+        System.out.println("No person found with this ID in the event.");
+        return null;
+    }
+}
+}
 
 

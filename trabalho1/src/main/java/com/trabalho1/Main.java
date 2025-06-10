@@ -17,7 +17,7 @@ public class Main {
             System.out.println("Welcome to Academic Events Manager, choose your option:");
             System.out.println("1 - Manage Events");
             System.out.println("2 - Manage People");
-            System.out.println("3 - Reports");
+            System.out.println("3 - Certificates");
             System.out.println("4 - Exit");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -158,8 +158,17 @@ public class Main {
                     } while (option != 6);
                     break;
                 case 3:
-                    
-
+                    System.out.println("Certificate Generetor: ");
+                    System.out.println("Choose the event!");
+                    meneger.listAllEvents();
+                    System.out.println("Enter the number of event:");
+                    String numberEvent = scanner.nextLine();
+                    System.out.println("Choose the people:");
+                    Event e = meneger.getEventByIndex(Integer.parseInt(numberEvent) - 1);
+                    e.report();
+                    System.out.println("Choothe the ID of People:");
+                    String idPeople = scanner.nextLine();
+                    CertificateUtil.certificateGenarate(e.getPeopleById(Integer.parseInt(idPeople)),e);
                 default:
                     break;
             }

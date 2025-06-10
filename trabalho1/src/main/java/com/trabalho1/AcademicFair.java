@@ -18,4 +18,8 @@ public class AcademicFair extends Event {
         System.out.println("Exhibitions addicionad");
         
     }
+
+    public ArrayList<String> getExhibitions(){
+        return exhibitions;
+    }
 }

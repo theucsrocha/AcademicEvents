@@ -31,7 +31,9 @@ public class Lecture extends Event {
         }   
     }
 
-    
+    public String getThemeOfLecture(){
+        return themeOfLecture;
+    }
 
     
 }

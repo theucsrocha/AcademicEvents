@@ -87,9 +87,11 @@ public class EventMeneger {
             System.out.println("Not Found");
             }
         else{
+            
             for(Event e : allEventsRegistred){
                 System.out.println((allEventsRegistred.indexOf(e) + 1) + ": " +  e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
             }
+            System.out.println("Total events: " + Event.getTotalEvents());
         }
     }
 
@@ -127,9 +129,11 @@ public class EventMeneger {
                 break;
             }
         }
+    }
+     public Event getEventByIndex(int i){
+            return allEventsRegistred.get(i);
+        }
+        
         
 
-
-
-    }
 }
