@@ -44,30 +44,51 @@ public class EventMeneger {
 
             switch (choice) {
                 case 1:
+                    System.out.println("\n========== Lectures ==========");
                     for (Event e : allEventsRegistred) {
                         if (e instanceof Lecture) {
-                            System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                            e.showDetails();
+                            if (!e.isEmpty()) {
+                                e.report();
+                            }
+                            System.out.println("----------------------------------------");
                         }
                     }
                     break;
                 case 2:
+                    System.out.println("\n========== Workshops ==========");
                     for (Event e : allEventsRegistred) {
                         if (e instanceof WorkShop) {
-                            System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                            e.showDetails();
+                            if (!e.isEmpty()) {
+                                e.report();
+                            }
+                            System.out.println("----------------------------------------");
                         }
                     }
                     break;
                 case 3:
+                    System.out.println("\n========== Academic Fairs ==========");
                     for (Event e : allEventsRegistred) {
                         if (e instanceof AcademicFair) {
-                            System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                            e.showDetails();
+                            if (!e.isEmpty()) {
+                                e.report();
+                            }
+                            System.out.println("----------------------------------------");
+                           
                         }
                     }
                     break;
                 case 4:
+                    System.out.println("\n========== Courses ==========");
                     for (Event e : allEventsRegistred) {
                         if (e instanceof Course) {
-                            System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                              e.showDetails();
+                            if (!e.isEmpty()) {
+                                e.report();
+                            }
+                            System.out.println("----------------------------------------");
                         }
                     }
                     break;
@@ -89,11 +110,10 @@ public class EventMeneger {
         System.out.println("========================================");
         for(Event e: allEventsRegistred){
             if(e.getDate().equals(date)){
-                System.out.println("    " + e.getName() + "    ");
-                System.out.println("    Type      : " + e.getClass().getSimpleName());
-                System.out.println("    Capacity  : " + e.getCapacity());
-                System.out.println("    Free Slots: " + e.getFreeSlots());
-                System.out.println("    Location  : " + e.getLocal());
+                e.showDetails();
+                if (!e.isEmpty()) {
+                    e.report();
+                }
                 System.out.println("----------------------------------------");
             }
         }
@@ -111,17 +131,16 @@ public class EventMeneger {
         for (int i = 0; i < allEventsRegistred.size(); i++) {
             Event e = allEventsRegistred.get(i);
             System.out.println((i + 1) + " - " + e.getName());
-            System.out.println("    Type      : " + e.getClass().getSimpleName());
-            System.out.println("    Capacity  : " + e.getCapacity());
-            System.out.println("    Free Slots: " + e.getFreeSlots());
-            System.out.println("    Date      : " + e.getDate());
-            System.out.println("    Location  : " + e.getLocal());
+            e.showDetails();
+            if (!e.isEmpty()) {
+            e.report();
+            }
             System.out.println("----------------------------------------");
-        }
-        System.out.println("Total events: " + Event.getTotalEvents());
-        System.out.println("========================================");
     }
-}
+            System.out.println("Total events: " + Event.getTotalEvents());
+            System.out.println("========================================");
+    }
+    }
 
     public void listAllPeople(){
         if (allPeopleRegistred.size() == 0) {

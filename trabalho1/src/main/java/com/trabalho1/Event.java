@@ -93,9 +93,9 @@ public class Event implements IEvents {
         } else {
             Collection<People> studentsCollection = registeredPeople.values();
             Iterator<People> i = studentsCollection.iterator();
-            System.out.println("========================================");
+            System.out.println("-----------------------------------------");
             System.out.println("Report of event: " + name);
-            System.out.println("========================================");
+            System.out.println("------------------------------------------");
             while (i.hasNext()) {
                 People p = i.next();
                 System.out.println(p.getClass().getSimpleName() + " / " + p.getName() + " | ID: " + p.getId());
@@ -111,6 +111,21 @@ public class Event implements IEvents {
         }
     }
 
+    public void showDetails() {
+    System.out.println("========================================");
+    System.out.println("Event: " + name);
+    System.out.println("Type      : " + this.getClass().getSimpleName());
+    System.out.println("Online    : " + (isOnline ? "Yes" : "No"));
+    if (isOnline) {
+        System.out.println("Subscribers: " + getSubscriptionCount());
+    } else {
+        System.out.println("Capacity   : " + capacity);
+        System.out.println("Free Slots : " + getFreeSlots());
+    }
+    System.out.println("Date      : " + date);
+    System.out.println("Location  : " + local);
+    System.out.println("========================================");
+}
     
     public int getFreeSlots(){
         return capacity - registeredPeople.size();
@@ -165,6 +180,13 @@ public class Event implements IEvents {
         return null;
     }
 }
+    public boolean getIsOnline() {
+        return isOnline;
+    }
+
+    public int getSubscriptionCount() {
+        return registeredPeople.size();
+    }
 }
 
 
