@@ -60,11 +60,20 @@ public class Main {
                                 System.out.print("Date (YYYY-MM-DD): ");
                                 String dateStr = scanner.nextLine();
                                 LocalDate date = LocalDate.parse(dateStr);
-                                System.out.print("Location: ");
-                                String local = scanner.nextLine();
                                 System.out.print("Is online? (true/false): ");
                                 boolean isOnline = scanner.nextBoolean();
                                 scanner.nextLine();
+                                String local;
+                                if(isOnline){
+                                    System.out.println("Site name: ");
+                                    local = scanner.nextLine();
+                                }
+                                else{
+                                    System.out.print("Location: ");
+                                    local = scanner.nextLine();}	
+                                
+                                
+                                
 
                                 Event event = null;
                                 switch (eventType) {

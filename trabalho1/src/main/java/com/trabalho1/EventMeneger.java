@@ -84,9 +84,17 @@ public class EventMeneger {
     }
 
     public void listByDate(LocalDate date){
+        System.out.println("\n========================================");
+        System.out.println("         Events on " + date + "         ");
+        System.out.println("========================================");
         for(Event e: allEventsRegistred){
             if(e.getDate().equals(date)){
-                System.out.println(e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
+                System.out.println("    " + e.getName() + "    ");
+                System.out.println("    Type      : " + e.getClass().getSimpleName());
+                System.out.println("    Capacity  : " + e.getCapacity());
+                System.out.println("    Free Slots: " + e.getFreeSlots());
+                System.out.println("    Location  : " + e.getLocal());
+                System.out.println("----------------------------------------");
             }
         }
     }
