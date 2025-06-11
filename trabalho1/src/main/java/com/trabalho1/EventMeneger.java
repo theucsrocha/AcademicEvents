@@ -25,13 +25,15 @@ public class EventMeneger {
     public void listByEvent(Scanner scanner){
         int choice;
         do{
-            System.out.println("Choose the type of event:");
-            System.out.println("1 - Lecture");
-            System.out.println("2 - WorkShop");
-            System.out.println("3 - Academic Fair");
-            System.out.println("4 - Course");
-            System.out.println("5 - Exit");
-
+            System.out.println("\n----------------------------------------");
+            System.out.println("         Choose the type of event       ");
+            System.out.println("----------------------------------------");
+            System.out.println("  1 - Lecture");
+            System.out.println("  2 - Workshop");
+            System.out.println("  3 - Academic Fair");
+            System.out.println("  4 - Course");
+            System.out.println("  5 - Exit");
+            System.out.print("Choose your option: ");
             choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -65,7 +67,9 @@ public class EventMeneger {
                     }
                     break;
                 case 5:
-                    System.out.println("Exiting report menu...");
+                    System.out.println("----------------------------------------");
+                    System.out.println("      Exiting report menu...            ");
+                    System.out.println("----------------------------------------");
                     break;
                 default:
                     System.out.println("Option not found, retry please!\n");
@@ -101,8 +105,11 @@ public class EventMeneger {
             }
         else{
             for(People p : allPeopleRegistred){
-                System.out.println(p.getName() + "\n  ID: " + p.getId());
-            }
+            System.out.println("----------------------------------------");
+            System.out.println("Name: " + p.getName());
+            System.out.println("ID: " + p.getId());
+        }
+        System.out.println("----------------------------------------");
         }
     }
 

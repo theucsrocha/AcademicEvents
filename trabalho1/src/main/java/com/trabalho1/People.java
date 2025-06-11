@@ -3,7 +3,7 @@ package com.trabalho1;
 import java.util.Vector;
 
 public class People {
-
+    public static int totalPeople;
     private String name;
     protected static int sequencialId;
     int id;
@@ -11,7 +11,7 @@ public class People {
     public People(String name){
         this.name = name;
         id = sequencialId++;
-     
+        totalPeople++;
     }
 
     public String getName() {
@@ -28,5 +28,9 @@ public class People {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static int getTotalPeople() {
+        return totalPeople;
     }
 }
