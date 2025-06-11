@@ -3,10 +3,15 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.Vector;
 
+/**
+ * Manages all events and people in the system.
+ * Provides methods to add, list, and register people in events.
+ */
 
 public class EventMeneger {
-
+    // List of all registered people
     private Vector<People> allPeopleRegistred;
+    // List of all registered events
     private Vector<Event> allEventsRegistred;
 
     public EventMeneger() {

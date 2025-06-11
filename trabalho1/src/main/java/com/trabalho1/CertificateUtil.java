@@ -6,7 +6,17 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+/**
+ * Utility class for generating participation certificates as PDF files.
+ */
+
 public class CertificateUtil {
+
+    /**
+     * Generates a PDF certificate for a participant in a specific event.
+     * The certificate content varies according to the event type.
+     */
+
     public static void certificateGenarate(People p,Event e){
         Document document = new Document();
         try {

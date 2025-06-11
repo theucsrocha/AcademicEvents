@@ -1,4 +1,10 @@
 package com.trabalho1;
+
+/**
+ * Represents a student participant in the system.
+ * Each student is associated with a university.
+ */
+
 public class Student extends People {
     
     private String university;

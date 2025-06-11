@@ -1,5 +1,8 @@
 package com.trabalho1;
-
+/**
+ * Represents a teacher participant in the system.
+ * Each teacher has a specialization.
+ */
 public class Teacher extends People {
 
     private String specionalization;

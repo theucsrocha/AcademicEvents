@@ -3,6 +3,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Represents a Lecture event, which has a theme and a list of speakers.
+ */
+
 public class Lecture extends Event {
 
     private String themeOfLecture;
@@ -13,6 +17,11 @@ public class Lecture extends Event {
         this.themeOfLecture = themeOfLecture;
         this.speakersArrayList = new ArrayList<String>();
     }
+
+    /**
+     * Prints the list of speakers for the lecture.
+     * If there are no speakers, prints a warning message.
+     */
 
     public void printSpeakers(){
         

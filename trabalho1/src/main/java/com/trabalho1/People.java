@@ -2,6 +2,11 @@ package com.trabalho1;
 
 import java.util.Vector;
 
+/**
+ * Represents a generic person in the system.
+ * Used as a base class for Student, Teacher, and External.
+ */
+
 public class People {
     public static int totalPeople;
     private String name;

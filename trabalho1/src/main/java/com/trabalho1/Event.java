@@ -7,6 +7,12 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.time.LocalDate;
 
+/**
+ * Represents an event with a name, capacity, date, location, and registered people.
+ * It provides methods to register people, check if the event is full or empty,
+ * and generate reports of registered participants.
+ */
+
 public class Event implements IEvents {
     private String name;
     private int capacity;
@@ -74,6 +80,10 @@ public class Event implements IEvents {
             return 1;
         }
 }
+
+    /**
+     * Prints a report of all registered people in the event.
+     */
 
     public void report(){
         if (isEmpty()) {

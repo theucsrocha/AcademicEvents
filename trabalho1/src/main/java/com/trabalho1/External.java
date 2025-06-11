@@ -1,5 +1,8 @@
 package com.trabalho1;
-
+/**
+ * Represents an external participant in an event.
+ * External participants have an occupation.
+ */
 public class External extends People {
     private String occupation;
 

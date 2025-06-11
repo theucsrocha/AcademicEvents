@@ -2,6 +2,11 @@ package com.trabalho1;
 
 import java.time.LocalDate;
 
+/**
+ * Represents a Course event, which has a specific duration in hours.
+ * Only students can be registered in a course.
+ */
+
 public class Course extends Event {
     
     private int hoursCourse;
@@ -10,7 +15,10 @@ public class Course extends Event {
         super(name, capacity, date, local,isOnline);
         this.hoursCourse = hoursCourse;
     }
-
+    /**
+     * Registers a person in the course.
+     * Only students are allowed to register.
+     */
     @Override
     public int registerPeople(People people){
         if(people instanceof Teacher ){

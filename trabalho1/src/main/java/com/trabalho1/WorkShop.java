@@ -1,7 +1,9 @@
 package com.trabalho1;
 
 import java.time.LocalDate;
-
+/**
+ * Represents a Workshop event, which has an apprenticeship area.
+ */
 public class WorkShop extends Event {
     
     private String apprenticeship;
