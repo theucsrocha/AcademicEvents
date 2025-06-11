@@ -34,6 +34,11 @@ public class CertificateUtil {
                 Lecture l = (Lecture) e;
                 document.add(new Paragraph("Type: Lecture"));
                 document.add(new Paragraph("Theme: " + l.getThemeOfLecture()));
+                System.out.println("Speakers of the lecture:");
+                for (String speaker : l.getSpeakersArrayList()) {
+                    document.add(new Paragraph("Speaker: " + speaker));
+                    System.out.println(speaker);
+                }
             } else if (e instanceof WorkShop) {
                 WorkShop w = (WorkShop) e;
                 document.add(new Paragraph("Type: Workshop"));

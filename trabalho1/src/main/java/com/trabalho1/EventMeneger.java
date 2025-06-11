@@ -91,18 +91,29 @@ public class EventMeneger {
         }
     }
 
-    public void listAllEvents(){
-        if (allEventsRegistred.size() == 0) {
-            System.out.println("Not Found");
-            }
-        else{
-            
-            for(Event e : allEventsRegistred){
-                System.out.println((allEventsRegistred.indexOf(e) + 1) + ": " +  e.getName() + "\n  Capacity: " + e.getCapacity() + "\n Free Slots: " + e.getFreeSlots());
-            }
-            System.out.println("Total events: " + Event.getTotalEvents());
+    public void listAllEvents() {
+    if (allEventsRegistred.isEmpty()) {
+        System.out.println("----------------------------------------");
+        System.out.println("           No events found.             ");
+        System.out.println("----------------------------------------");
+    } else {
+        System.out.println("\n========================================");
+        System.out.println("              Events List               ");
+        System.out.println("========================================");
+        for (int i = 0; i < allEventsRegistred.size(); i++) {
+            Event e = allEventsRegistred.get(i);
+            System.out.println((i + 1) + " - " + e.getName());
+            System.out.println("    Type      : " + e.getClass().getSimpleName());
+            System.out.println("    Capacity  : " + e.getCapacity());
+            System.out.println("    Free Slots: " + e.getFreeSlots());
+            System.out.println("    Date      : " + e.getDate());
+            System.out.println("    Location  : " + e.getLocal());
+            System.out.println("----------------------------------------");
         }
+        System.out.println("Total events: " + Event.getTotalEvents());
+        System.out.println("========================================");
     }
+}
 
     public void listAllPeople(){
         if (allPeopleRegistred.size() == 0) {

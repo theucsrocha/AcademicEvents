@@ -1,5 +1,5 @@
 package com.trabalho1;
-
+import java.util.Scanner;
 import java.time.LocalDate;
 import java.util.ArrayList;
 /**
@@ -18,6 +18,17 @@ public class AcademicFair extends Event {
     public void addExhibitions(String newExhibitions){
         exhibitions.add(newExhibitions);
         System.out.println("Exhibitions addicionad");
+        
+    }
+
+    public void addExhibitions(int amountNewExhibitions, Scanner scanner){
+        for (int i = 0; i < amountNewExhibitions; i++) {
+            System.out.println("Enter the name of the exhibition " + (i + 1) + ":");
+            String newExhibitions = scanner.nextLine();
+            exhibitions.add(newExhibitions);
+        }
+        System.out.println("Exhibitions addicionad");
+        
         
     }
 

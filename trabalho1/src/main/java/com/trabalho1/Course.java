@@ -21,7 +21,7 @@ public class Course extends Event {
      */
     @Override
     public int registerPeople(People people){
-        if(people instanceof Teacher ){
+        if(!(people instanceof Student) ){
         System.out.println("----------------------------------------");
         System.out.println("Only students can be registered in a course.");
         System.out.println("----------------------------------------");

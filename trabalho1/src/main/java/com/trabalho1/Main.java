@@ -72,6 +72,14 @@ public class Main {
                                         System.out.print("Lecture theme: ");
                                         String theme = scanner.nextLine();
                                         event = new Lecture(name, capacity, date, local, theme, isOnline);
+                                        System.out.print("How many speakers do you want to add? ");
+                                        int numSpeakers = scanner.nextInt();
+                                        scanner.nextLine();
+                                        if(numSpeakers == 1) {
+                                            ((Lecture) event).registerSpeaker(scanner);
+                                        } else if(numSpeakers > 1) {
+                                            ((Lecture) event).registerSpeaker(scanner, numSpeakers);
+                                        }
                                         break;
                                     case 2:
                                         System.out.print("Workshop apprenticeship: ");
@@ -83,9 +91,20 @@ public class Main {
                                         int hours = scanner.nextInt();
                                         scanner.nextLine();
                                         event = new Course(name, capacity, date, local, hours, isOnline);
+                                        
                                         break;
                                     case 4:
                                         event = new AcademicFair(name, capacity, date, local, isOnline);
+                                        System.out.println("How many exhibitions do you want to add? ");
+                                        int numExhibitions = scanner.nextInt();
+                                        scanner.nextLine();
+                                        if(numExhibitions == 1) {
+                                            System.out.print("Enter the name of the exhibition: ");
+                                            String exhibition = scanner.nextLine();
+                                            ((AcademicFair) event).addExhibitions(exhibition);
+                                        } else if(numExhibitions > 1) {
+                                            ((AcademicFair) event).addExhibitions(numExhibitions, scanner);
+                                        }
                                         break;
                                     default:
                                         System.out.println("Invalid event type!");
