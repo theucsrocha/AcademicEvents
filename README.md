@@ -69,19 +69,6 @@ trabalho1/
                           *.java
 ```
 
-## Cleaning the Project
-
-Before submitting, remove all `.class` files and the `target/` folder:
-
-```sh
-cd trabalho1
-mvn clean
-```
-Or, manually:
-```sh
-find . -name "*.class" -delete
-rm -rf target/
-```
 
 ## Author
 
